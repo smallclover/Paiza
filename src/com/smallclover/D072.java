@@ -3,10 +3,10 @@ package com.smallclover;
 import java.util.Scanner;
 
 /**
+ * データのバックアップ
  * @author smallclover
  * @create 2017-10-18
  * @since
- * データのバックアップ
  */
 public class D072 {
     public static void main(String[] args) {

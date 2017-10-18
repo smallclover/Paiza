@@ -3,10 +3,10 @@ package com.smallclover;
 import java.util.Scanner;
 
 /**
+ * 計算機の表示
  * @author smallclover
  * @create 2017-10-17
  * @since
- * 計算機の表示
  */
 public class D077 {
 

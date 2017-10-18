@@ -3,10 +3,10 @@ package com.smallclover;
 import java.util.Scanner;
 
 /**
+ * 禁止ワード
  * @author smallclover
  * @create 2017-10-17
  * @since
- * 禁止ワード
  */
 public class D076 {
     public static void main(String[] args) {

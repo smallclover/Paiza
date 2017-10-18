@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 /**
  * 入学試験
+ * @author smallclover
+ * @create 2017-10-17
+ * @since
  */
 public class D078 {
     public static void main(String[] args) {

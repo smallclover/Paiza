@@ -3,10 +3,10 @@ package com.smallclover;
 import java.util.*;
 
 /**
+ * 足りないカード
  * @author smallclover
  * @create 2017-10-17
  * @since
- * 足りないカード
  */
 public class D075 {
     public static void main(String[] args) {

@@ -3,10 +3,10 @@ package com.smallclover;
 import java.util.Scanner;
 
 /**
+ * 時間の表記
  * @author smallclover
  * @create 2017-10-17
  * @since
- * 時間の表記
  */
 public class D074 {
     public static void main(String[] args) {
