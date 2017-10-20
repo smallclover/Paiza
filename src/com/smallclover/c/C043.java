@@ -1,4 +1,4 @@
-package com.smallclover;
+package com.smallclover.c;
 
 import java.util.Scanner;
 

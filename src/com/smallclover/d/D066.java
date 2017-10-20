@@ -1,18 +1,23 @@
-package com.smallclover;
+package com.smallclover.d;
 
 import java.util.Scanner;
 
 /**
- * 残りのページ
+ * スタミナの計算
  * @author smallclover
- * @create 2017-10-19
+ * @create 2017-10-20
  * @since
  */
-public class D070 {
+public class D066 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int m = sc.nextInt();
         int n = sc.nextInt();
-        System.out.println(m-n);
+
+        if (m > n){
+            System.out.println("No");
+        }else {
+            System.out.println(n - m);
+        }
     }
 }
