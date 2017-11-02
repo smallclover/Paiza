@@ -9,31 +9,28 @@ import java.util.Scanner;
  * @since
  */
 public class C008 {
-    private static String start = null;
-    private static String end = null;
-    private static String str = null;
 
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        start = sc.next();
-        end = sc.next();
-        str = sc.next();
-
-        if(str.contains(start) && str.contains(end)){
-            String str2 = str.substring(str.indexOf(start));
-            String [] strs = str2.split(start);
-            for (int i = 0; i < strs.length; i++) {
-                if (strs[i].contains(end)) {
-                    System.out.println(strs[i].substring(0, strs[i].indexOf(end)));
-                }else {
-                    continue;
-                }
-            }
-
-        }
-
-
+        String start = sc.next();
+        String end = sc.next();
+        String str = sc.next();
+        String str2 = str.substring(str.indexOf(start));
+        getContent(str2, start, end);
     }
 
+    public static void getContent(String subStr, String start, String end){
+        if (subStr.contains(start) && subStr.contains(end)){
+            if (subStr.substring(subStr.indexOf(start) + start.length(), subStr.indexOf(end)).length() == 0){
+                System.out.println("<blank>");
+            }else {
+                System.out.println(subStr.substring(subStr.indexOf(start) + start.length(), subStr.indexOf(end)));
+            }
+            getContent(subStr.substring(subStr.indexOf(end) + end.length()), start, end);
+        }else {
+            return;
+        }
+    }
 
 }
