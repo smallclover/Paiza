@@ -1,33 +1,37 @@
 package com.smallclover.c;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
- * 嫌いな数字
+ * ポイントカードの計算
  * @author smallclover
- * @create 2017-11-02
+ * @create 2017-11-03
  * @since
  */
 public class C015 {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
-        String key = sc.next();
         int n = sc.nextInt();
-        String[] room = new String[n];
-        for (int i = 0; i < room.length; i++) {
-            room[i] = sc.next();
+        List<Integer[]> a = new ArrayList<Integer[]>();
+        for (int i = 0; i < n; i++) {
+            Integer[] b = new Integer[2];
+            b[0] = sc.nextInt();
+            b[1] = sc.nextInt();
+            a.add(b);
         }
-        boolean flag = false;
-        for (int i = 0; i < room.length; i++) {
-            if (room[i].contains(key)) {
-                continue;
+        int sum = 0;
+        for (int i = 0; i < a.size(); i++) {
+            Integer[] b = a.get(i);
+            if (b[0] == 3 || b[0] == 13 || b[0] == 23 || b[0] == 30 || b[0] == 31) {
+                sum += Math.floor(0.03 * b[1]);
+            }else if (b[0] == 5 || b[0] == 15 || b[0] == 25) {
+                sum += Math.floor(0.05 * b[1]);
             }else {
-                flag = true;
-                System.out.println(room[i]);
+                sum += Math.floor(0.01 * b[1]);
             }
         }
-        if (!flag){
-            System.out.println("none");
-        }
+        System.out.println(sum);
     }
 }
