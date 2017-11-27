@@ -20,11 +20,6 @@ public class B026 {
         int n = sc.nextInt();//人数
         List<Integer[]> x_x = new ArrayList<Integer[]>();
         Integer[] price = new Integer[n];//货物价格
-        int r_500 = 500 * v_500;
-        int r_100 = 100 * v_100;
-        int r_50 = 50 * v_50;
-        int r_10 = 10 * v_10;
-        int r_r = r_500+r_100+r_50+r_10;
         for (int i = 0; i < n; i++) {
             Integer[] x = new Integer[4];
             price[i] = sc.nextInt();
@@ -39,21 +34,71 @@ public class B026 {
             Integer[] y = x_x.get(i);
             int money = y[0]*500 + y[1]*100 + y[2]*50 + y[3]*10;
             int give_money = money - price[i];
-            if (give_money > r_r) {
-                System.out.println("impossible");
-            }else {
-                int required_500 = give_money/500;
-                int required_100 = give_money%500/100;
-                int required_50 = give_money%500%100/50;
-                int required_10 = give_money%500%100%50/10;
-                if (v_500 == required_500){
-                    System.out.println(required_500 + " 0 0 0");
-                    r_r = r_r - r_500;
-                    v_500 = 0;
-                    r_500 = 0;
-                }else if (v_500 > required_500){
+            int required_500 = give_money/500;
+            int required_100 = give_money%500/100;
+            int required_50 = give_money%500%100/50;
+            int required_10 = give_money%500%100%50/10;
 
+            if (v_500 * 500 + v_100 * 100 + v_50 * 50 + v_10 * 10 >= give_money){
+
+                if (v_500 >= required_500){
+                    v_500 -= required_500;
+                }else {
+                    if (required_500 != 0){
+                        required_100 += Math.abs(v_500-required_500)*500/100;
+                        required_500 = v_500;
+                        v_500 = 0;
+                    }
                 }
+
+                if (v_100 >= required_100){
+                    v_100 -= required_100;
+                }else {
+                    if (required_100 != 0){
+                        required_50 += Math.abs(v_100-required_100)*100/50;
+                        required_100 = v_100;
+                        v_100 = 0;
+                    }
+                }
+
+                if (required_50 >= 3){
+                    System.out.println("impossible");
+                    continue;
+                }
+
+                if (v_50 >= required_50){
+                    if (required_50 == 2){
+                        System.out.println("impossible");
+                        continue;
+                    }
+                    v_50 -= required_50;
+
+                }else {
+                    if (required_50 != 0){
+                        required_10 += Math.abs(v_50 - required_50)*50/10;
+                        required_50 = v_50;
+                        v_50 = 0;
+                    }
+                }
+                if (required_10 >= 10){
+                    System.out.println("impossible");
+                    continue;
+                }
+
+                if (v_10 >= required_10){
+                    v_10 -= required_10;
+                }else {
+                    System.out.println("impossible");
+                    continue;
+                }
+                v_500 += y[0];
+                v_100 += y[1];
+                v_50 += y[2];
+                v_10 += y[3];
+                System.out.println(required_500+" "+required_100+" "+required_50+" "+required_10);
+            }else {
+                System.out.println("impossible");
+                continue;
             }
         }
     }
